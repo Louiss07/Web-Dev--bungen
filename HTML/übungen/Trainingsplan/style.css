@@ -1,0 +1,132 @@
+/* ===== 1. Reset & Basis ===== */
+/* gilt für alles, steht ganz oben */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: black;
+    line-height: 1.5;
+    background-color: aliceblue;
+
+
+
+}
+
+
+
+/* ===== 2. Elemente ===== */
+/* Standard-Aussehen von HTML-Tags */
+
+h1 {
+    margin: 3rem 0;
+    text-decoration: underline 3px;
+
+
+}
+
+/* ===== 3. Seitenlayout ===== */
+/* die großen Bereiche, in der Reihenfolge wie auf der Seite */
+
+main {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 50rem;
+    margin: 0 auto;
+
+
+}
+
+header,
+footer {
+    padding: 0 1rem;
+}
+
+nav {
+
+    margin-left: auto;
+
+}
+
+nav ul {
+    display: flex;
+    margin-right: 0.5rem;
+    padding: 4px;
+    background-color: rgb(159, 195, 226);
+    box-shadow: 4px 4px 10px rgb(0, 0, 0, 0.15);
+    list-style: none;
+    gap: 20px;
+
+}
+
+aside {
+    padding: 2rem 2rem;
+    background-color: azure;
+    width: fit-content;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 1px 15px 15px 1px rgb(0, 0, 0, 0.15);
+    margin-top: 6lh;
+
+
+}
+
+footer {
+    color: gray;
+    font-size: small;
+    max-width: 50rem;
+    margin: 0 auto;
+
+
+
+}
+
+/* ===== 4. Komponenten ===== */
+/* wiederverwendbare Bausteine, jeweils zusammen */
+aside ul {
+    padding-left: 20px;
+    list-style: upper-roman;
+
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+
+}
+
+th,
+td {
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+}
+
+
+.tabelle-scroll {
+    overflow-x: auto;
+}
+
+.nebeneinander {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+
+}
+
+
+
+
+
+/* ===== 5. Zustände & Hilfsklassen ===== */
+/* kleine Klassen, die andere überschreiben sollen → ganz unten */

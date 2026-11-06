@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Louis - Trades </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="trades.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+        <p>Louis</p>
+        <nav>
+            <ul>
+
+                <li><a href="index.html">Startseite</a></li>
+                <li> <a href="projekte.html">Projekte</a></li>
+                <li> <a href="tabelle.html">Stundenplan</a></li>
+                <li> <a href="trades.html" class="active">Trading</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+        <h1> Trading </h1>
+
+
+        <div class="tabelle-scroll">
+
+            <table>
+                <caption>Trades</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Datum</th>
+                        <th scope="col">Instrument</th>
+                        <th scope="col">Setup</th>
+                        <th scope="col"> Richtung</th>
+                        <th scope="col"> Einstieg</th>
+                        <th scope="col"> Ausstieg</th>
+                        <th scope="col"> P&amp;L</th>
+
+
+                    </tr>
+                </thead>
+                <tbody id="trade-liste">
+
+                </tbody>
+
+
+
+
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="6">Gesamt P&amp;L </th>
+                        <td id="summe">-</td>
+                    </tr>
+
+                </tfoot>
+
+
+
+
+            </table>
+        </div>
+
+        <section id="statistik">
+            <button id="verstecken" class="verstecktButton">Statistik Verstecken</button>
+
+            <div class="karte2">
+                <div class="inhaltKarte2">
+                    <p>Gesamt-P&amp;L: <span id="gesamt-pnl">–</span></p>
+                    <p>Winrate: <span id="winrate">–</span></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Neuer Trade eintragen</h2>
+            <form action="https://httpbin.org/post" method="post" id="trade-form">
+                <div>
+                    <label for="datum" class="tlable">Datum</label>
+                    <input type="date" id="datum" name="datum" required>
+                </div>
+                <div>
+                    <label for="instrument" class="tlable"> Instrument </label>
+                    <select id="ticker" name="instrument" required>
+                        <option value="MNQ"> MNQ</option>
+                        <option value="MES"> MES</option>
+                        <option value="SPY"> SPY</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="setup" class="tlable">Setup</label>
+                    <input type="text" id="setup" name="setup" required>
+                </div>
+
+                <fieldset>
+                    <legend> Richtung </legend>
+                    <input type="radio" id="long" name="richtung" value="long" required>
+                    <label for="long">Long</label>
+                    <input type="radio" id="short" name="richtung" value="short" required>
+                    <label for="short"> Short</label>
+                </fieldset>
+
+                <div>
+                    <label for="stueckzahl" class="tlable"> Stückzahl</label>
+                    <input type="number" id="stueckzahl" name="stueckzahl" min="1" max="100" required>
+                </div>
+
+
+
+                <div>
+                    <label for="einstieg" class="tlable">Einstieg</label>
+                    <input type="number" id="einstieg" name="einstieg" min="1" step="0.01" required>
+                    <label for="ausstieg" class="tlable">Ausstieg</label>
+                    <input type="number" id="ausstieg" name="ausstieg" min="1" step="0.01" required>
+                </div>
+
+
+
+                <div>
+                    <button type="submit">Trade Posten</button>
+
+
+                </div>
+
+            </form>
+
+
+
+
+
+
+
+
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 Louis</p>
+    </footer>
+
+
+</body>
+
+</html>

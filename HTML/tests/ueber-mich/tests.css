@@ -1,0 +1,193 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+
+}
+
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #000000;
+    background: #6a6e70;
+    line-height: 1.5;
+}
+
+table {
+    border-collapse: collapse;
+
+
+
+}
+
+
+th,
+td {
+    border-bottom: 0.5px solid #000000;
+    border-right: 0.5px solid #000000;
+    padding: 0.5rem 1rem;
+
+
+}
+
+
+
+
+h1 {
+    font-size: 2rem;
+}
+
+h1,
+h2 {
+    color: azure;
+}
+
+nav a {
+    color: rgb(56, 56, 58);
+    text-decoration: none;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tabelle-scroll {
+    overflow-x: auto;
+}
+
+a:hover {
+
+    color: #29204d;
+
+
+
+}
+
+a {
+    color: blue;
+
+
+}
+
+form div {
+    margin-bottom: 4px;
+    display: flex;
+    font-weight: bold;
+    gap: 10px;
+
+
+}
+
+.raster div {
+    background-color: aqua;
+    padding: 5px;
+    width: 10rem;
+
+
+
+}
+
+
+
+.raster {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+    .raster {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+.tlable {
+    width: 8rem;
+
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+
+
+}
+
+
+nav {
+
+    margin-left: auto;
+
+}
+
+nav ul {
+    display: flex;
+    margin-right: 0.5rem;
+    padding: 4px;
+    background-color: rgb(121, 122, 122);
+    box-shadow: 4px 4px 10px black;
+    list-style: none;
+    gap: 20px;
+
+
+
+}
+
+.active {
+    color: rgb(175, 173, 39);
+    text-decoration: underline;
+
+}
+
+.verlust {
+    color: rgb(220, 38, 38);
+}
+
+.gewinn {
+    color: green;
+}
+
+
+.karte {
+    padding: 1rem 2rem 0 2rem;
+    background-color: rgb(109, 110, 110);
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+
+
+}
+
+
+
+.raster-karte {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+}
+
+
+.gross {
+    grid-column: 1 / -1;
+}
+
+
+
+
+footer {
+    color: #252a2c;
+    font-size: 0.7rem;
+}
