@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block titel %}Meine Seite{% endblock %}</title>
+
+</head>
+
+<body>
+    <header>
+        <p> Louis </p>
+        <nav>
+            <ul>
+                <li> <a href="{{ url_for('startseite') }}">Startseite</a> </li>
+                <li> <a href="{{ url_for('stats') }}">Statistiken</a> </li>
+                <li> <a href="{{ url_for('neuer_trade') }}">Neuer Trade</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block inhalt %}{% endblock %}
+    </main>
+    <footer>
+        <p>© 2026 Louis</p>
+    </footer>
+</body>
+
+</html>

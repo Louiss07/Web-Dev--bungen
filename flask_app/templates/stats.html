@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block titel %}Statistiken{% endblock %}
+
+
+
+{% block inhalt %}
+<h1>{{ titel }}</h1>
+<p> Gesamt Pnl von : {{"%.2f"|format( stat.gesamt )}} $, auf {{stat.anzahl}} Trades, das ist eine winrate von {{
+    "%.2f"|format(stat.winrate)}} %
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th> Datum </th>
+            <th> Ticker </th>
+            <th> Setup</th>
+            <th> Richtung </th>
+            <th> PNL </th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for t in trades %}
+        <tr>
+            <td> <a href="{{ url_for('trade_detail', nummer=loop.index) }}">{{ t.datum }}</a> </td>
+            <td> {{t.ticker}} </td>
+            <td> {{t.setup}} </td>
+            <td> {{t.richtung}} </td>
+            <td class="{% if t.pnl > 0 %}gewinn{% else %}verlust{% endif %}"> {{"%.2f"|format(t.pnl)}} </td>
+
+        </tr>
+
+
+        {% endfor%}
+
+
+    </tbody>
+</table>
+
+{% endblock %}
