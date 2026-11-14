@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block titel %}Dashboard{% endblock %}
+
+
+
+{% block inhalt %}
+
+<p id="fehler" class="verlust versteckt"></p>
+{% if fehler %}<p class="verlust">{{ fehler }}</p>{% endif %}
+<section id="statistik">
+    <button id="verstecken" class="verstecktButton">Statistik Verstecken</button>
+
+    <div class="karte2">
+        <div class="inhaltKarte2">
+            <p>Gesamt-P&amp;L: <span id="gesamt-pnl">–</span></p>
+            <p>Winrate: <span id="winrate">–</span></p>
+        </div>
+    </div>
+</section>
+
+
+<section>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Datum </th>
+                <th> Ticker </th>
+                <th> Setup</th>
+                <th> Richtung </th>
+                <th> PNL </th>
+            </tr>
+        </thead>
+        <tbody id="trade-liste">
+
+
+
+
+
+        </tbody id="summe">
+
+        <tfoot>
+
+            <tr>
+                <th scope="row" colspan="4">Gesamt P&amp;L </th>
+                <td id="summe">-</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</section>
+
+<section>
+
+    <h2>Neuer Trade eintragen</h2>
+
+
+
+    <form id="trade-form">
+        <div>
+            <label for="datum" class="tlable">Datum</label>
+            <input type="date" id="datum" name="datum" required>
+        </div>
+        <div>
+            <label for="ticker" class="tlable"> Instrument </label>
+            <select id="ticker" name="instrument" required>
+                <option value="MNQ"> MNQ</option>
+                <option value="MES"> MES</option>
+                <option value="SPY"> SPY</option>
+            </select>
+        </div>
+        <div>
+            <label for="setup" class="tlable">Setup</label>
+            <input type="text" id="setup" name="setup" required>
+        </div>
+
+        <fieldset>
+            <legend> Richtung </legend>
+            <input type="radio" id="long" name="richtung" value="long" required>
+            <label for="long">Long</label>
+            <input type="radio" id="short" name="richtung" value="short" required>
+            <label for="short"> Short</label>
+        </fieldset>
+
+        <div>
+            <label for="stueckzahl" class="tlable"> Stückzahl</label>
+            <input type="number" id="stueckzahl" name="stueckzahl" max="100">
+        </div>
+
+
+
+        <div>
+            <label for="einstieg" class="tlable">Einstieg</label>
+            <input type="number" id="einstieg" name="einstieg" min="1" step="0.01" required>
+            <label for="ausstieg" class="tlable">Ausstieg</label>
+            <input type="number" id="ausstieg" name="ausstieg" min="1" step="0.01" required>
+        </div>
+
+
+
+        <div>
+            <button type="submit">Trade Posten</button>
+
+
+        </div>
+
+    </form>
+
+
+
+
+
+
+
+
+
+</section>
+
+
+{% endblock %}

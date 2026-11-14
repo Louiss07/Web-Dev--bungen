@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>{% block titel %}Meine Seite{% endblock %}</title>
+    {% block scripts%}
+    <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script> {% endblock%}
 
 </head>
 
@@ -16,6 +18,7 @@
                 <li> <a href="{{ url_for('startseite') }}">Startseite</a> </li>
                 <li> <a href="{{ url_for('stats') }}">Statistiken</a> </li>
                 <li> <a href="{{ url_for('neuer_trade') }}">Neuer Trade</a> </li>
+                <li> <a href="{{ url_for('dashboard') }}">Dashboard</a> </li>
             </ul>
         </nav>
     </header>

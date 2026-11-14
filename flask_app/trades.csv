@@ -6,3 +6,5 @@ datum,ticker,setup,richtung,pnl
 15.10.2026,MES,Breaker Block,long,215
 16.10.2026,MNQ,EG,short,110
 19.10.2026,MNQ,FVG,short,-126.0
+22.10.2026,MES,Liquidity Sweep,long,215.0
+

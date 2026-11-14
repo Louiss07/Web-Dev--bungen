@@ -181,6 +181,46 @@ def api_trade_detail(nummer):
     return trades[nummer - 1]
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
+@app.route("/api/trades", methods=["POST"])
+def api_trade_neu():
+    daten = request.get_json()
+    try: 
+        datum = datetime.strptime(daten['datum'], "%Y-%m-%d").strftime("%d.%m.%Y")
+        ticker = daten['ticker']
+        setup = daten['setup']
+        richtung = daten['richtung']
+        einstieg = float(daten['einstieg'])
+        ausstieg = float(daten['ausstieg'])
+        groesse = int(daten['stueckzahl'])
+
+    except ValueError as e:
+        return {"fehler": f"Nicht gefunden {e} "}, 404
+    except KeyError:
+        return {"fehler": "Fehlendes Feld"}, 400
+
+    if groesse < 1:
+        return {"fehler": "groesse nicht möglich "}, 400
+    
+    if richtung not in ("long", "short"):
+        return {"fehler": "Richtung nur long oder short!"}, 400
+    
+    if ticker not in punktewert:
+        return {"fehler": "Diesen ticker gibt es nicht "}, 400
+
+    pnl = berechne_pnl(ticker, richtung, einstieg, ausstieg, groesse)
+
+    with open(BASIS / "trades.csv", "a", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerow([datum, ticker, setup, richtung, pnl])
+    
+
+    return {"datum":datum, "ticker":ticker, "setup": setup, "richtung": richtung,"pnl": pnl}, 201
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
